@@ -396,14 +396,14 @@ def solve_typer_info_help(typer_info: TyperInfo) -> str:
     try:
         callback_help = typer_info.typer_instance.registered_callback.help
         if not isinstance(callback_help, DefaultPlaceholder):
-            return inspect.cleandoc(callback_help or "")
+            return callback_help or ""
     except AttributeError:
         pass
     # Priority 3: Explicit value was set in sub_app = typer.Typer()
     try:
         instance_help = typer_info.typer_instance.info.help
         if not isinstance(instance_help, DefaultPlaceholder):
-            return inspect.cleandoc(instance_help or "")
+            return instance_help or ""
     except AttributeError:
         pass
     # Priority 4: Implicit inference from callback docstring in app.add_typer()
@@ -569,7 +569,7 @@ def get_command_from_info(
     if use_help is None:
         use_help = inspect.getdoc(command_info.callback)
     else:
-        use_help = inspect.cleandoc(use_help)
+        use_help = use_help
     (
         params,
         convertors,
