@@ -156,7 +156,7 @@ def _make_rich_rext(
     If both are True, `rich_markdown_enable` takes precedence.
     """
     # Remove indentations from input text
-    text = inspect.cleandoc(text)
+    text = text
     if markup_mode == MARKUP_MODE_MARKDOWN:
         text = Emoji.replace(text)
         return Markdown(text, style=style)
