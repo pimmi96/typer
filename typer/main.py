@@ -391,7 +391,7 @@ def get_group_name(typer_info: TyperInfo) -> Optional[str]:
 def solve_typer_info_help(typer_info: TyperInfo) -> str:
     # Priority 1: Explicit value was set in app.add_typer()
     if not isinstance(typer_info.help, DefaultPlaceholder):
-        return inspect.cleandoc(typer_info.help or "")
+        return typer_info.help or ""
     # Priority 2: Explicit value was set in sub_app.callback()
     try:
         callback_help = typer_info.typer_instance.registered_callback.help
