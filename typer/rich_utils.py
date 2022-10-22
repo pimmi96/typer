@@ -205,12 +205,12 @@ def _get_help_text(
     if remaining_paragraphs:
         if markup_mode != MARKUP_MODE_RICH:
             # Remove single linebreaks
-            remaining_paragraphs = [
-                #x.replace("\n", " ").strip()
-                if not x.startswith("\b")
-                else "{}\n".format(x.strip("\b\n"))
-                for x in remaining_paragraphs
-            ]
+            #remaining_paragraphs = [
+            #    x.replace("\n", " ").strip()
+            #    if not x.startswith("\b")
+            #    else "{}\n".format(x.strip("\b\n"))
+            #    for x in remaining_paragraphs
+            #]
             # Join back together
             remaining_lines = "\n".join(remaining_paragraphs)
         else:
