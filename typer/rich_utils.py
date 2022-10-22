@@ -183,7 +183,7 @@ def _get_help_text(
         yield Text(DEPRECATED_STRING, style=STYLE_DEPRECATED)
 
     # Fetch and dedent the help text
-    help_text = inspect.cleandoc(obj.help or "")
+    help_text = obj.help or ""
 
     # Trim off anything that comes after \f on its own line
     help_text = help_text.partition("\f")[0]
@@ -324,7 +324,7 @@ def _make_command_help(
     Rich Text object or as Markdown.
     Ignores single newlines as paragraph markers, looks for double only.
     """
-    paragraphs = inspect.cleandoc(help_text).split("\n\n")
+    paragraphs = help_text.split("\n\n")
     # Remove single linebreaks
     if markup_mode != MARKUP_MODE_RICH and not paragraphs[0].startswith("\b"):
         paragraphs[0] = paragraphs[0].replace("\n", " ")
