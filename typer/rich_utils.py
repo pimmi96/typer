@@ -37,7 +37,7 @@ STYLE_USAGE_COMMAND = "bold"
 STYLE_DEPRECATED = "red"
 STYLE_DEPRECATED_COMMAND = "dim"
 STYLE_HELPTEXT_FIRST_LINE = ""
-STYLE_HELPTEXT = "dim"
+STYLE_HELPTEXT = ""
 STYLE_OPTION_HELP = ""
 STYLE_OPTION_DEFAULT = "dim"
 STYLE_OPTION_ENVVAR = "dim yellow"
@@ -195,7 +195,7 @@ def _get_help_text(
         pass
         #first_line = first_line.replace("\n", " ")
     yield _make_rich_rext(
-        text=first_line.strip(),
+        text=first_line,#.strip(),
         style=STYLE_HELPTEXT_FIRST_LINE,
         markup_mode=markup_mode,
     )
