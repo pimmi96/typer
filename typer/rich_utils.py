@@ -192,6 +192,7 @@ def _get_help_text(
     first_line = help_text.split("\n\n")[0]
     # Remove single linebreaks
     if markup_mode != MARKUP_MODE_MARKDOWN and not first_line.startswith("\b"):
+        pass
         #first_line = first_line.replace("\n", " ")
     yield _make_rich_rext(
         text=first_line.strip(),
